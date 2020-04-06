@@ -4,8 +4,9 @@ function setup()
 }
 
 function draw() 
-{
+{    
     background(0, 0, 0, 51);  
+    text(touches.length, 150, 150);
     if (mouseIsPressed)
     {
       changeColor();
