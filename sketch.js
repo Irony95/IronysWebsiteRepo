@@ -1,19 +1,28 @@
 function setup() 
 {
-    createCanvas(640, 480);
+    createCanvas(windowWidth, windowHeight);
 }
 
 function draw() 
 {
-    background(0, 0, 0, 51);
-    var ellipseColor = color(random(0, 255), random(0, 255), random(0, 255));
-    fill(ellipseColor);
+    background(0, 0, 0, 51);  
     if (mouseIsPressed)
     {
+      changeColor();
       ellipse(mouseX, mouseY, 80, 80);
     }
     else if (touches.length > 0)
     {
-      ellipse(touches[0].x, touches[0].y, 80, 80);
+      for (var i = 0;i < touches.length;i++)
+      {
+        changeColor();
+        ellipse(touches[i].x, touches[i].y, 80, 80);
+      }      
     }
+}
+
+function changeColor()
+{
+  var ellipseColor = color(random(0, 255), random(0, 255), random(0, 255));
+  fill(ellipseColor);
 }
