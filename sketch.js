@@ -5,13 +5,15 @@ function setup()
 
 function draw() 
 {
-    if (mouseIsPressed) 
+    background(0, 0, 0, 51);
+    var color = color(random(0, 255), random(0, 255), random(0, 255));
+    fill(color);
+    if (mouseIsPressed)
     {
-        fill(0);
-      } 
-      else 
-      {
-        fill(255);
-      }
       ellipse(mouseX, mouseY, 80, 80);
+    }
+    else if (touches.length > 0)
+    {
+      ellipse(touches[0].x, touches[0].y, 80, 80);
+    }
 }
