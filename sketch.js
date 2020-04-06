@@ -5,8 +5,7 @@ function setup()
 
 function draw() 
 {    
-    background(0, 0, 0, 51);  
-    text(touches.length, 150, 150);
+    background(0, 0, 0, 51);      
     if (mouseIsPressed)
     {
       changeColor();
@@ -18,6 +17,7 @@ function draw()
       {
         changeColor();
         ellipse(touches[i].x, touches[i].y, 80, 80);
+        text(touches[i].x, 150, 150 + (i*150));
       }      
     }
 }
