@@ -6,8 +6,8 @@ function setup()
 function draw() 
 {
     background(0, 0, 0, 51);
-    var color = color(random(0, 255), random(0, 255), random(0, 255));
-    fill(color);
+    var ellipseColor = color(random(0, 255), random(0, 255), random(0, 255));
+    fill(ellipseColor);
     if (mouseIsPressed)
     {
       ellipse(mouseX, mouseY, 80, 80);
