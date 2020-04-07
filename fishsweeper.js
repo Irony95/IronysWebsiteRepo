@@ -34,16 +34,13 @@ function Tile(row_count, column_count)
 
 Tile.prototype.show = function()
 {
-    if (showBombs)
+    if (this.hasBomb && showBombs)
     {
-        if (this.hasBomb)
-        {
-            fill(255, 55, 55);
-        }
-        else
-        {
-            fill(55, 55, 255);
-        }
+        fill(255, 55, 55);
+    }
+    else
+    {
+        fill(55, 55, 255);
     }
 
     if (this.exposed)
