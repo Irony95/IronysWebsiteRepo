@@ -22,6 +22,12 @@ var noOfCols;
 var noOfRows;
 var showBombs = false;
 var lastFrameUpdated = false;
+var bombExpandX = 10;
+var bombExpandY = 5;
+
+var exposedbombcol = -1;
+var exposedbombrow = -1;
+
 function Tile(row_count, column_count)
 {    
     this.col = column_count;
@@ -203,6 +209,8 @@ function draw()
             updateFrame();
         }
         lastFrameUpdated = true;
+        grid[exposedbombcol][exposedbombrow].show();
+        pufferfish.resize(pufferfish.width + bombExpandX, pufferfish.width + bombExpandY);
         textSize(70)
         fill(0)
         text("u lose lol", 50, windowHeight/2);
@@ -276,6 +284,11 @@ function mouseClicked()
                     else if (currentTool == "pole" && !grid[i][j].flagged)
                     {
                         grid[i][j].reveal();
+                        if (grid[i][j].hasBomb)
+                        {
+                            exposedbombcol = i;
+                            exposedbombrow = j;
+                        }
                         if (testIfWon())
                         {
                             gameState = "won";
