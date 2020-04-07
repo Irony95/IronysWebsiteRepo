@@ -210,7 +210,7 @@ function draw()
         }
         lastFrameUpdated = true;
         grid[exposedbombcol][exposedbombrow].show();
-        pufferfish.resize(pufferfish.width + bombExpandX, pufferfish.width + bombExpandY);
+        pufferfish.resize(pufferfish.width + bombExpandX, pufferfish.height + bombExpandY);
         textSize(70)
         fill(0)
         text("u lose lol", 50, windowHeight/2);
