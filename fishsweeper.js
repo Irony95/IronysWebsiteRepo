@@ -129,6 +129,7 @@ function setup()
 {
     fishingPole.resize(mouseSize, mouseSize);
     lilypadMouse.resize(mouseSize/2, mouseSize/2);
+    pufferfish.resize(tileSize+20, tileSize+20);
     lilypad.resize(tileSize, tileSize);
 
     cursor("NONE");
