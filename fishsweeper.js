@@ -9,7 +9,7 @@ let lilypadMouse;
 
 let swapButtonColor = "#fef65b";
 let mouseSize = 40;
-let tileSize = 20;
+let tileSize = 60;
 let percentagebombs = 0.25;
 let whereToCheck = 
     [[1,1], [0,1], [-1,1],
@@ -142,8 +142,8 @@ function setup()
     cursor("NONE");
     stroke("#ffffff");
     textSize(100);
-    var height = (floor(windowHeight/tileSize-1))*tileSize;
-    var width = (floor(windowWidth/tileSize))*tileSize;
+    var height = (floor(windowHeight/tileSize-2))*tileSize;
+    var width = (floor(windowWidth/tileSize-1))*tileSize;
     createCanvas(width, height+tileSize);
 
     var rows = (height/tileSize);
