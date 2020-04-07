@@ -9,7 +9,7 @@ let lilypadMouse;
 
 let swapButtonColor = "#fef65b";
 let mouseSize = 40;
-let tileSize = 200;
+let tileSize = 80;
 let percentagebombs = 0.25;
 let whereToCheck = 
     [[1,1], [0,1], [-1,1],
