@@ -20,6 +20,7 @@ let whereToCheck =
 var grid;
 var noOfCols;
 var noOfRows;
+var showBombs = false;
 function Tile(row_count, column_count)
 {    
     this.col = column_count;
@@ -33,21 +34,22 @@ function Tile(row_count, column_count)
 
 Tile.prototype.show = function()
 {
-    if (this.hasBomb)
+    if (showBombs)
     {
-        fill(255, 55, 55);
-    }
-    else
-    {
-        fill(55, 55, 255);
+        if (this.hasBomb)
+        {
+            fill(255, 55, 55);
+        }
+        else
+        {
+            fill(55, 55, 255);
+        }
     }
 
     if (this.exposed)
     {        
         if (this.hasBomb)
         {
-            print("ran")
-            //rect(this.location.x, this.location.y, tileSize, tileSize);
             image(pufferfish, this.location.x, this.location.y)            
         }
         else 
@@ -87,7 +89,6 @@ Tile.prototype.testIfClickedOn = function(mx, my)
 }
 Tile.prototype.reveal = function()
 {
-    print("reveall")
     if (this.hasBomb)
     {
         gameState = "lost";
@@ -116,7 +117,6 @@ Tile.prototype.updateSurrounding = function()
             }
         }
     }
-    print(cocurrentAmount)
     this.numberOfSurroundingBombs = cocurrentAmount;
 }
 
