@@ -21,6 +21,7 @@ var grid;
 var noOfCols;
 var noOfRows;
 var showBombs = false;
+var lastFrameUpdated = false;
 function Tile(row_count, column_count)
 {    
     this.col = column_count;
@@ -185,13 +186,7 @@ function draw()
     if (gameState == "playing")
     {
         background(swapButtonColor);
-        for (var i = 0; i < grid.length;i++)
-        {
-            for (var j = 0;j < grid[i].length;j++)
-            {
-                grid[i][j].show();
-            }
-        }        
+        updateFrame();        
         if (currentTool == "pole")
         {
             image(fishingPole, windowWidth/2 - fishingPole.width/2, noOfRows*tileSize + tileSize/2 - fishingPole.height/2)
@@ -203,31 +198,38 @@ function draw()
     }
     else if (gameState == "lost")
     {
-        for (var i = 0; i < grid.length;i++)
+        if (!lastFrameUpdated)
         {
-            for (var j = 0;j < grid[i].length;j++)
-            {
-                grid[i][j].show();
-            }
+            updateFrame();
         }
+        lastFrameUpdated = true;
         textSize(70)
         fill(0)
         text("u lose lol", 50, windowHeight/2);
     }
     else if (gameState == "won")
     {
-        for (var i = 0; i < grid.length;i++)
+        if (!lastFrameUpdated)
+        {
+            updateFrame();
+        }
+        lastFrameUpdated = true;
+        textSize(70)
+        fill(0)
+        text("u win i guess", 50, windowHeight/2);
+    }
+    toolCursor();
+}
+
+function updateFrame()
+{
+    for (var i = 0; i < grid.length;i++)
         {
             for (var j = 0;j < grid[i].length;j++)
             {
                 grid[i][j].show();
             }
         }
-        textSize(70)
-        fill(0)
-        text("u win i guess", 50, windowHeight/2);
-    }
-    toolCursor();
 }
 
 function toolCursor()
