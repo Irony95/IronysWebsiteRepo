@@ -202,12 +202,26 @@ function draw()
     }
     else if (gameState == "lost")
     {
+        for (var i = 0; i < grid.length;i++)
+        {
+            for (var j = 0;j < grid[i].length;j++)
+            {
+                grid[i][j].show();
+            }
+        }
         textSize(70)
         fill(0)
         text("u lose lol", 50, windowHeight/2);
     }
     else if (gameState == "won")
     {
+        for (var i = 0; i < grid.length;i++)
+        {
+            for (var j = 0;j < grid[i].length;j++)
+            {
+                grid[i][j].show();
+            }
+        }
         textSize(70)
         fill(0)
         text("u win i guess", 50, windowHeight/2);
